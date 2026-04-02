@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPU Online - Join Now</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-orange: #ff6b35;
+            --primary-dark: #e85d2c;
+            --light-orange: #fff3ed;
+        }
+
+        /* Carousel Styles */
+        .carousel-item {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-caption {
+            z-index: 1;
+            bottom: 50%;
+            transform: translateY(50%);
+        }
+
+        .carousel-caption h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .carousel-caption p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .carousel-caption .btn {
+            background-color: var(--primary-orange);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .carousel-caption .btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Form Section */
+        .form-wrapper {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px 0;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .form-left {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-dark) 100%);
+            padding: 40px;
+            color: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-left img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-left h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .form-left ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .form-left ul li {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .form-left ul li i {
+            margin-right: 10px;
+            color: #ffd700;
+        }
+
+        .form-right {
+            padding: 40px;
+        }
+
+        .form-right h2 {
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+
+        .form-right .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+        }
+
+        .checkbox-label {
+            font-size: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .checkbox-label input {
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .btn-apply {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-dark) 100%);
+            border: none;
+            padding: 14px;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 8px;
+            width: 100%;
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn-apply:hover {
+            opacity: 0.9;
+            color: white;
+        }
+
+        .certified-badge {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        #formMessage {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        #formMessage.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        #formMessage.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 50px auto;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-dark) 100%);
+            border-radius: 15px 15px 0 0;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header .close {
+            color: white;
+            opacity: 1;
+            font-size: 28px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item {
+                height: 350px;
+            }
+            .carousel-caption h1 {
+                font-size: 1.5rem;
+            }
+            .carousel-caption p {
+                font-size: 0.9rem;
+            }
+            .form-left {
+                text-align: center;
+            }
+            .form-right {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Carousel Start -->
+    <div id="mainCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#mainCarousel" data-slide-to="1"></li>
+            <li data-target="#mainCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('img/ranking.webp');">
+                <div class="carousel-caption text-center">
+                    <h1>Welcome to LPU Online</h1>
+                    <p>Same Degree, Now Online. Entitled by UGC</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('img/ranking2.webp');">
+                <div class="carousel-caption text-center">
+                    <h1>100% Placement Assistance</h1>
+                    <p>Get placed in top MNCs with our placement support</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('img/ranking3.webp');">
+                <div class="carousel-caption text-center">
+                    <h1>UGC Recognized Degree</h1>
+                    <p>Earn a degree that is valued worldwide</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#mainCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#mainCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Form Section Start -->
+    <div class="form-wrapper">
+        <div class="container">
+            <div class="form-container">
+                <div class="row no-gutters">
+                    <!-- Left Side - Image and Content -->
+                    <div class="col-md-5">
+                        <div class="form-left">
+                            <img src="img/lpu1.jpg" alt="LPU Campus" id="leftImage">
+                            <h3>LPU Online Programme</h3>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> UGC Recognized Degree</li>
+                                <li><i class="fas fa-check-circle"></i> 100% Placement Assistance</li>
+                                <li><i class="fas fa-check-circle"></i> Online Exam Facility</li>
+                                <li><i class="fas fa-check-circle"></i> Flexible Learning</li>
+                                <li><i class="fas fa-check-circle"></i> Expert Faculty</li>
+                            </ul>
+                            <div class="admission-alert" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; text-align: center;">
+                                <strong>⚠️ Admission Closing In 5 Days!</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Form -->
+                    <div class="col-md-7">
+                        <div class="form-right">
+                            <!-- Top Image -->
+                            <div class="text-center mb-3">
+                                <img src="img/lpuonline.png" alt="LPU Online" id="topImage" style="height: 60px;">
+                            </div>
+                            <h2>Get your Brochure Copy</h2>
+                            <p class="subtitle">Fill the form below and our counselor will contact you</p>
+                            <form id="joinForm">
+                                <div class="form-group">
+                                    <input type="text" id="name" class="form-control" placeholder="Enter Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" class="form-control" placeholder="Enter Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" id="phone" class="form-control" placeholder="Enter Phone No." required>
+                                </div>
+                                <div class="form-group">
+                                    <select id="state" class="form-control" required>
+                                        <option value="">Select State</option>
+                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select id="course" class="form-control" required>
+                                        <option value="">Select Course</option>
+                                        <option value="MBA">MBA - Master of Business Administration</option>
+                                        <option value="M.Com">M.Com - Master of Commerce</option>
+                                        <option value="MCA">MCA - Master of Computer Applications</option>
+                                        <option value="MA">MA - Master of Arts</option>
+                                        <option value="BBA">BBA - Bachelor of Business Administration</option>
+                                        <option value="BCA">BCA - Bachelor of Computer Applications</option>
+                                        <option value="B.Com">B.Com - Bachelor of Commerce</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="consent" required>
+                                        <span>I authorize a representative to contact me via phone and/or email. This will override registry on DND/NDNC.</span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn-apply">Apply Now <i class="fas fa-arrow-right ml-2"></i></button>
+                                <div class="certified-badge">
+                                    <i class="fas fa-shield-alt"></i> Only a certified mentor will assist you
+                                </div>
+                                <div id="formMessage"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Section End -->
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Success!</h5>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <i class="fas fa-check-circle" style="font-size: 60px; color: #28a745; margin-bottom: 15px;"></i>
+                <p>Thank you for your interest! Our counselor will contact you soon.</p>
+                <p class="text-muted" style="font-size: 12px; margin-top: 10px;">Redirecting to home page...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Handle form submission
+        document.getElementById("joinForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            var consent = document.getElementById("consent");
+            if (!consent.checked) {
+                var msgDiv = document.getElementById("formMessage");
+                msgDiv.innerHTML = 'Please accept the terms to proceed.';
+                msgDiv.className = "error";
+                return;
+            }
+            
+            var formData = new FormData();
+            formData.append("name", document.getElementById("name").value);
+            formData.append("email", document.getElementById("email").value);
+            formData.append("phone", document.getElementById("phone").value);
+            formData.append("state", document.getElementById("state").value);
+            formData.append("course", document.getElementById("course").value);
+            
+            var messageDiv = document.getElementById("formMessage");
+            messageDiv.innerHTML = 'Submitting...';
+            messageDiv.className = "";
+            
+            fetch("save_join_request.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success modal
+                    var modal = document.getElementById("successModal");
+                    modal.style.display = "block";
+                    
+                    // Redirect to index.html after 2 seconds
+                    setTimeout(function() {
+                        window.location.href = "index.html";
+                    }, 2000);
+                } else {
+                    messageDiv.innerHTML = data.message;
+                    messageDiv.className = "error";
+                }
+            })
+            .catch(error => {
+                messageDiv.innerHTML = 'Something went wrong. Please try again.';
+                messageDiv.className = "error";
+            });
+        });
+
+        // Close modal
+        var modal = document.getElementById("successModal");
+        var span = document.getElementsByClassName("close")[0];
+        if (span) {
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
