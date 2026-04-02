@@ -1,4 +1,3 @@
-# LPU-Online-Degree
 # 🎓 LPU Online - Educational Platform
 
 ![LPU Online](https://img.shields.io/badge/LPU-Online-orange)
