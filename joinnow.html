@@ -5,18 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LPU Online - Join Now</title>
-    
+    <link rel="icon" href="img/lpuicon.png" type="image/png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
     <style>
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            padding-top: 160px;
+        }
+
+        @media (max-width: 991.98px) {
+            body {
+                padding-top: 90px;
+            }
+        }
+        
+        /* LPU Theme Colors - Yellow + Orange Mix */
         :root {
-            --primary-orange: #ff6b35;
-            --primary-dark: #e85d2c;
-            --light-orange: #fff3ed;
+            --primary-orange: #f39c12;
+            --primary-dark: #e67e22;
+            --primary-light: #fef9e7;
+            --secondary-orange: #d35400;
         }
 
         /* Carousel Styles */
@@ -55,7 +91,7 @@
         }
 
         .carousel-caption .btn {
-            background-color: var(--primary-orange);
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-dark) 100%);
             border: none;
             padding: 12px 30px;
             font-weight: 600;
@@ -63,7 +99,7 @@
         }
 
         .carousel-caption .btn:hover {
-            background-color: var(--primary-dark);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-orange) 100%);
         }
 
         /* Form Section */
@@ -80,13 +116,26 @@
         }
 
         .form-left {
-            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             padding: 40px;
             color: white;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(243,156,18,0.1) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .form-left img {
@@ -98,6 +147,7 @@
         .form-left h3 {
             font-size: 28px;
             margin-bottom: 20px;
+            color: var(--primary-orange);
         }
 
         .form-left ul {
@@ -112,7 +162,7 @@
 
         .form-left ul li i {
             margin-right: 10px;
-            color: #ffd700;
+            color: var(--primary-orange);
         }
 
         .form-right {
@@ -120,8 +170,12 @@
         }
 
         .form-right h2 {
-            color: var(--primary-orange);
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .form-right .subtitle {
@@ -135,16 +189,18 @@
         }
 
         .form-control {
-            border: 1px solid #ddd;
+            border: 2px solid #eee;
             border-radius: 8px;
             padding: 12px 15px;
             font-size: 14px;
             width: 100%;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus {
             border-color: var(--primary-orange);
-            box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25);
+            outline: none;
         }
 
         .checkbox-label {
@@ -159,6 +215,7 @@
         .checkbox-label input {
             margin-top: 2px;
             flex-shrink: 0;
+            accent-color: var(--primary-orange);
         }
 
         .btn-apply {
@@ -171,21 +228,37 @@
             width: 100%;
             color: white;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .btn-apply:hover {
-            opacity: 0.9;
-            color: white;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-orange) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
         }
 
         .certified-badge {
-            background: #f0f0f0;
+            background: var(--primary-light);
             padding: 10px;
             border-radius: 8px;
             text-align: center;
             margin-top: 20px;
             font-size: 12px;
-            color: #666;
+            color: var(--primary-dark);
+            border-left: 3px solid var(--primary-orange);
+        }
+
+        .certified-badge i {
+            color: var(--primary-orange);
+            margin-right: 5px;
+        }
+
+        .admission-alert {
+            background: rgba(243, 156, 18, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(243, 156, 18, 0.3);
         }
 
         #formMessage {
@@ -261,6 +334,10 @@
             padding: 20px;
             text-align: center;
         }
+        
+        .modal-body i {
+            color: var(--primary-orange);
+        }
 
         @media (max-width: 768px) {
             .carousel-item {
@@ -279,10 +356,131 @@
                 padding: 25px;
             }
         }
+        
+        /* Hover effects */
+        .form-left ul li:hover i {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        
+        select.form-control {
+            cursor: pointer;
+            background-color: white;
+        }
+        
+        /* Custom radio/checkbox styling */
+        input[type="checkbox"]:checked {
+            background-color: var(--primary-orange);
+            border-color: var(--primary-orange);
+        }
     </style>
 </head>
-
 <body>
+
+    <!-- Fixed Header Start -->
+    <div class="fixed-header">
+        <!-- Topbar Start -->
+        <div class="container-fluid d-none d-lg-block">
+            <div class="row align-items-center py-4 px-xl-5">
+                <div class="col-lg-3">
+                    <a href="index.html" class="text-decoration-none">
+                        <img src="img/LPU.jpg" alt="LPU Online Degree" style="max-height: 70px; width: auto;">
+                    </a>
+                </div>
+                <div class="col-lg-3 text-right">
+                    <div class="d-inline-flex align-items-center">
+                        <i class="fa fa-2x fa-map-marker-alt" style="color: var(--primary-orange); margin-right: 12px;"></i>
+                        <div class="text-left">
+                            <h6 class="font-weight-semi-bold mb-1">Our Office</h6>
+                            <small>Jalandhar-Delhi, G.T.Road,Phagwara, Punjab(INDIA) - 144411</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 text-right">
+                    <div class="d-inline-flex align-items-center">
+                        <i class="fa fa-2x fa-envelope" style="color: var(--primary-orange); margin-right: 12px;"></i>
+                        <div class="text-left">
+                            <h6 class="font-weight-semi-bold mb-1">Email Us</h6>
+                            <small>LPU Punjab@gmail.com</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 text-right">
+                    <div class="d-inline-flex align-items-center">
+                        <i class="fa fa-2x fa-phone" style="color: var(--primary-orange); margin-right: 12px;"></i>
+                        <div class="text-left">
+                            <h6 class="font-weight-semi-bold mb-1">Call Us</h6>
+                            <small>+91-1824-517000</small><br>
+                            <small>+91-1824-404404</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+        <!-- Navbar Start -->
+        <div class="container-fluid">
+            <div class="row border-top px-xl-5">
+                <div class="col-lg-3 d-none d-lg-block">
+                    <a class="d-flex align-items-center justify-content-between bg-secondary w-100 text-decoration-none"
+                       data-toggle="collapse" href="#navbar-vertical"
+                       style="height: 67px; padding: 0 30px;">
+                        <h5 class="m-0" style="color: var(--primary-orange);"><i class="fa fa-book-open mr-2"></i>Subjects</h5>
+                        <i class="fa fa-angle-down" style="color: var(--primary-orange);"></i>
+                    </a>
+                    <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light"
+                         id="navbar-vertical" style="width: calc(100% - 30px); z-index: 9;">
+                        <div class="navbar-nav w-100">
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link" data-toggle="dropdown">Web Design <i class="fa fa-angle-down float-right mt-1"></i></a>
+                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                    <a href="course-detail.php?slug=web-design" class="dropdown-item">HTML</a>
+                                    <a href="course-detail.php?slug=web-design" class="dropdown-item">CSS</a>
+                                    <a href="course-detail.php?slug=web-design" class="dropdown-item">jQuery</a>
+                                </div>
+                            </div>
+                            <a href="course-detail.php?slug=apps-design" class="nav-item nav-link">Apps Design</a>
+                            <a href="course-detail.php?slug=marketing" class="nav-item nav-link">Marketing</a>
+                            <a href="course-detail.php?slug=research" class="nav-item nav-link">Research</a>
+                            <a href="course-detail.php?slug=seo" class="nav-item nav-link">SEO</a>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="col-lg-9">
+                    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                        <a href="index.html" class="text-decoration-none d-block d-lg-none">
+                            <h1 class="m-0"><span style="color: var(--primary-orange);">E</span>COURSES</h1>
+                        </a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav py-0">
+                                <a href="index.html" class="nav-item nav-link">Home</a>
+                                <a href="about.html" class="nav-item nav-link">About</a>
+                                <a href="course.html" class="nav-item nav-link">Courses</a>
+                                <a href="teacher.html" class="nav-item nav-link">Teachers</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Blog</a>
+                                    <div class="dropdown-menu rounded-0 m-0">
+                                        <a href="blog.html" class="dropdown-item">Blog List</a>
+                                        <a href="single.html" class="dropdown-item">Blog Detail</a>
+                                    </div>
+                                </div>
+                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            </div>
+                            <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="joinnow.html" style="background: linear-gradient(135deg, var(--primary-orange), var(--primary-dark)); border: none;">Join Now</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar End -->
+    </div>
+    <!-- Fixed Header End -->
 
     <!-- Carousel Start -->
     <div id="mainCarousel" class="carousel slide" data-ride="carousel">
@@ -296,18 +494,21 @@
                 <div class="carousel-caption text-center">
                     <h1>Welcome to LPU Online</h1>
                     <p>Same Degree, Now Online. Entitled by UGC</p>
+                    <a href="#form-section" class="btn">Apply Now</a>
                 </div>
             </div>
             <div class="carousel-item" style="background-image: url('img/ranking2.webp');">
                 <div class="carousel-caption text-center">
                     <h1>100% Placement Assistance</h1>
                     <p>Get placed in top MNCs with our placement support</p>
+                    <a href="#form-section" class="btn">Apply Now</a>
                 </div>
             </div>
             <div class="carousel-item" style="background-image: url('img/ranking3.webp');">
                 <div class="carousel-caption text-center">
                     <h1>UGC Recognized Degree</h1>
                     <p>Earn a degree that is valued worldwide</p>
+                    <a href="#form-section" class="btn">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -321,7 +522,7 @@
     <!-- Carousel End -->
 
     <!-- Form Section Start -->
-    <div class="form-wrapper">
+    <div class="form-wrapper" id="form-section">
         <div class="container">
             <div class="form-container">
                 <div class="row no-gutters">
@@ -337,7 +538,7 @@
                                 <li><i class="fas fa-check-circle"></i> Flexible Learning</li>
                                 <li><i class="fas fa-check-circle"></i> Expert Faculty</li>
                             </ul>
-                            <div class="admission-alert" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; text-align: center;">
+                            <div class="admission-alert">
                                 <strong>⚠️ Admission Closing In 5 Days!</strong>
                             </div>
                         </div>
@@ -495,5 +696,4 @@
     </script>
 
 </body>
-
 </html>

@@ -1,6 +1,42 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$db_host = 'localhost';
+$db_user = 'root';
+$db_pass = '';
+$db_name = 'ecourses_db';
+
+$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$slug = isset($_GET['slug']) ? mysqli_real_escape_string($conn, $_GET['slug']) : '';
+
+// If no slug, redirect
+if (empty($slug)) {
+    header("Location: course.html");
+    exit;
+}
+
+// Fetch course
+$result = mysqli_query($conn, "SELECT * FROM courses WHERE slug = '$slug'");
+$course = mysqli_fetch_assoc($result);
+
+if (!$course) {
+    echo "<h1>Course Not Found</h1>";
+    echo "<p>No course found with slug: " . htmlspecialchars($slug) . "</p>";
+    echo "<a href='course.html'>Back to Courses</a>";
+    exit;
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title><?php echo $course['name']; ?> - LPU Online</title>
+    <link href="css/style.css" rel="stylesheet">
     <meta charset="utf-8">
     <title>LPU Online</title>
     <link rel="icon" href="img/lpuicon.png" type="image/png">
@@ -25,29 +61,29 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
-        .fixed-header{
+        .fixed-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 9999;
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
 
-        body{
-            padding-top: 170px;
+        body {
+            padding-top: 160px;
         }
 
-        @media (max-width: 991.98px){
-            body{
-                padding-top: 80px;
+        @media (max-width: 991.98px) {
+            body {
+                padding-top: 90px;
             }
         }
     </style>
 </head>
+</head>
 <body>
-
     <!-- Fixed Header Start -->
     <div class="fixed-header">
         <!-- Topbar Start -->
@@ -81,8 +117,8 @@
                         <i class="fa fa-2x fa-phone text-primary mr-3"></i>
                         <div class="text-left">
                             <h6 class="font-weight-semi-bold mb-1">Call Us</h6>
-                            <small>+91-1824-517000 </small><br>
-                            <small>+91-1824-404404 </small>
+                            <small>+91-1824-517000</small><br>
+                            <small>+91-1824-404404</small>
                         </div>
                     </div>
                 </div>
@@ -94,11 +130,14 @@
         <div class="container-fluid">
             <div class="row border-top px-xl-5">
                 <div class="col-lg-3 d-none d-lg-block">
-                    <a class="d-flex align-items-center justify-content-between bg-secondary w-100 text-decoration-none" data-toggle="collapse" href="#navbar-vertical" style="height: 67px; padding: 0 30px;">
+                    <a class="d-flex align-items-center justify-content-between bg-secondary w-100 text-decoration-none"
+                       data-toggle="collapse" href="#navbar-vertical"
+                       style="height: 67px; padding: 0 30px;">
                         <h5 class="text-primary m-0"><i class="fa fa-book-open mr-2"></i>Subjects</h5>
                         <i class="fa fa-angle-down text-primary"></i>
                     </a>
-                    <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 9;">
+                    <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light"
+                         id="navbar-vertical" style="width: calc(100% - 30px); z-index: 9;">
                         <div class="navbar-nav w-100">
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link" data-toggle="dropdown">Web Design <i class="fa fa-angle-down float-right mt-1"></i></a>
@@ -115,6 +154,7 @@
                         </div>
                     </nav>
                 </div>
+
                 <div class="col-lg-9">
                     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                         <a href="" class="text-decoration-none d-block d-lg-none">
@@ -123,10 +163,11 @@
                         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
                         </button>
+
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav py-0">
                                 <a href="index.html" class="nav-item nav-link">Home</a>
-                                <a href="about.html" class="nav-item nav-link active">About</a>
+                                <a href="about.html" class="nav-item nav-link">About</a>
                                 <a href="course.html" class="nav-item nav-link">Courses</a>
                                 <a href="teacher.html" class="nav-item nav-link">Teachers</a>
                                 <div class="nav-item dropdown">
@@ -136,7 +177,7 @@
                                         <a href="single.html" class="dropdown-item">Blog Detail</a>
                                     </div>
                                 </div>
-                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                <a href="contact.html" class="nav-item nav-link active">Contact</a>
                             </div>
                             <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="joinnow.html">Join Now</a>
                         </div>
@@ -147,128 +188,25 @@
         <!-- Navbar End -->
     </div>
     <!-- Fixed Header End -->
-
-    <!-- Header Start -->
-    <div class="container-fluid page-header" style="margin-bottom: 90px; background-image: url('img/ChatGPT Image Apr 1, 2026, 12_09_16 AM.png'); background-size: cover; background-position: center;">
-        <div class="container">
-            <div class="d-flex flex-column justify-content-center" style="min-height: 300px">
-                <h3 class="display-4 text-white text-uppercase">About</h3>
-                <div class="d-inline-flex text-white">
-                    <p class="m-0 text-uppercase"><a class="text-white" href="index.html">Home</a></p>
-                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">About</p>
-                </div>
-            </div>
-        </div>
+    <div class="container" style="padding: 50px;">
+        <h1><?php echo $course['name']; ?></h1>
+        <p><strong>Duration:</strong> <?php echo $course['duration']; ?></p>
+        <p><strong>Level:</strong> <?php echo $course['level']; ?></p>
+        <p><strong>Price:</strong> ₹<?php echo number_format($course['price']); ?></p>
+        <p><strong>Description:</strong> <?php echo $course['description']; ?></p>
+        
+        <?php $benefits = explode('|', $course['benefits']); ?>
+        <h3>Benefits:</h3>
+        <ul>
+            <?php foreach($benefits as $benefit): ?>
+                <li><?php echo trim($benefit); ?></li>
+            <?php endforeach; ?>
+        </ul>
+        
+        <a href="Enrolment.php?course_id=<?php echo $course['id']; ?>&course=<?php echo urlencode($course['name']); ?>" class="btn btn-primary">Enroll Now</a>
+        <br><br>
+        <a href="course.html">← Back to Courses</a>
     </div>
-    <!-- Header End -->
-
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <img class="img-fluid rounded mb-4 mb-lg-0" src="img/lpu1.jpg" alt="">
-                </div>
-                <div class="col-lg-7">
-                    <div class="text-left mb-4">
-                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">About Us</h5>
-                        <h1>Innovative University – Learning Beyond Boundaries</h1>
-                    </div>
-                    <p>At LPU Online, we don't just follow traditional education — we reinvent it. Our university offers a truly innovative way to learn by combining cutting‑edge technology, industry‑aligned curricula, and personalized mentorship. Whether you're a working professional or a student aspiring to lead, our programs are designed to fit your life and accelerate your career. With virtual labs, live interactive sessions, and global networking opportunities, you gain more than a degree — you gain a future‑ready edge.</p>
-                    <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-    <!-- Registration Start -->
-    <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-7 mb-5 mb-lg-0">
-                    <div class="mb-4">
-                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Need Any Courses</h5>
-                        <h1 class="text-white">30% Off For New Students</h1>
-                    </div>
-                    <p class="text-white">Start your learning journey with us today and gain access to industry‑ready courses taught by experts. Whether you're upskilling or starting fresh, we make quality education accessible, flexible, and career‑focused.</p>
-                    <ul class="list-inline text-white m-0">
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Learn from industry experts with real‑world experience</li>
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Flexible schedules that fit your life – learn anytime, anywhere</li>
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Certificates that boost your resume and career opportunities</li>
-                    </ul>
-                </div>
-                <div class="col-lg-5">
-                    <div class="card border-0">
-                        <div class="card-header bg-light text-center p-4">
-                            <h1 class="m-0">Sign Up Now</h1>
-                        </div>
-                        <div class="card-body rounded-bottom bg-primary p-5">
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control border-0 p-4" placeholder="Your name" required="required" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control border-0 p-4" placeholder="Your email" required="required" />
-                                </div>
-                                <div class="form-group">
-                                    <select class="custom-select border-0 px-4" style="height: 47px;">
-                                        <option selected>Select a course</option>
-                                        <option value="1">Course 1</option>
-                                        <option value="2">Course 1</option>
-                                        <option value="3">Course 1</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <button class="btn btn-dark btn-block border-0 py-3" type="submit">Sign Up Now</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Testimonial</h5>
-                <h1>What Our Students Say About Online Learning</h1>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="owl-carousel testimonial-carousel">
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-normal mb-4">“The flexibility of online classes allowed me to balance my job and studies perfectly. The live sessions felt personal, and the professors were always available to guide me. I earned a promotion even before graduating!”</h4>
-                            <img class="img-fluid mx-auto mb-3" src="img/uff.jpg" alt="">
-                            <h5 class="m-0">Priya Sharma</h5>
-                            <span>MBA Graduate, Marketing Manager</span>
-                        </div>
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-normal mb-4">“I never thought I could learn data science from top faculty while living in a small town. The hands-on projects and peer community made all the difference. I now work as a data analyst at a Fortune 500 company.”</h4>
-                            <img class="img-fluid mx-auto mb-3" src="img/londa.jpg" alt="">
-                            <h5 class="m-0">Rahul Mehta</h5>
-                            <span>Data Science Graduate, Analyst</span>
-                        </div>
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-normal mb-4">“What I love most is the global network. I've connected with classmates from 20+ countries, and the career support team helped me land an internship at a top tech firm. Online learning opened doors I didn’t know existed.”</h4>
-                            <img class="img-fluid mx-auto mb-3" src="img/mam.jpg" alt="">
-                            <h5 class="m-0">Richa Tiwari</h5>
-                            <span>B.Tech Student, Future Developer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
-
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
@@ -283,7 +221,7 @@
                         <div class="d-flex justify-content-start mt-4">
                             <a class="btn btn-outline-light btn-square mr-2" href="@NoxBeast"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-square mr-2" href="https://www.linkedin.com/in/harsh-kumar555125"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-square mr-2" href="https://www.linkedin.com/in/harsh-kumar555125" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                             <a class="btn btn-outline-light btn-square" href="glxsyy.harsh___x"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
@@ -299,6 +237,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-5 col-md-12 mb-5">
                 <h5 class="text-primary text-uppercase mb-4" style="letter-spacing: 5px;">Newsletter</h5>
                 <p>Stay in the loop with the latest courses, expert tips, and exclusive offers. Subscribe to our newsletter and never miss an update that can shape your future.</p>
@@ -317,7 +256,7 @@
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white">&copy; <a href="#">Domain Name</a>. All Rights Reserved. Designed by <a href="https://www.linkedin.com/in/harsh-kumar555125">HARSH KUMAR</a></p>
+                <p class="m-0 text-white">&copy; <a href="#">Domain Name</a>. All Rights Reserved. Designed by <a href="https://www.linkedin.com/in/harsh-kumar555125" target="_blank" rel="noopener noreferrer">HARSH KUMAR</a></p>
             </div>
             <div class="col-lg-6 text-center text-md-right">
                 <ul class="nav d-inline-flex">
@@ -337,16 +276,22 @@
             </div>
         </div>
     </div>
-
     <!-- Footer End -->
+
+    <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
+    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
 </html>

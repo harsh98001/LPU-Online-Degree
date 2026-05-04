@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-   <title>LPU Online</title>
+    <title>LPU Online</title>
     <link rel="icon" href="img/lpuicon.png" type="image/png">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
@@ -14,7 +13,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -24,104 +23,130 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-</head>
 
+    <style>
+        .fixed-header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        body{
+            padding-top: 170px;
+        }
+
+        @media (max-width: 991.98px){
+            body{
+                padding-top: 80px;
+            }
+        }
+    </style>
+</head>
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid d-none d-lg-block">
-        <div class="row align-items-center py-4 px-xl-5">
-            <div class="col-lg-3">
-                <a href="" class="text-decoration-none">
-                    <img src="img/LPU.jpg" alt="LPU Online Degree" style="max-height:70px; width: auto;">
-                </a>
-            </div>
-            <div class="col-lg-3 text-right">
-                <div class="d-inline-flex align-items-center">
-                    <i class="fa fa-2x fa-map-marker-alt text-primary mr-3"></i>
-                    <div class="text-left">
-                        <h6 class="font-weight-semi-bold mb-1">Our Office</h6>
-                        <small>Jalandhar-Delhi, G.T.Road, Phagwara, Punjab (INDIA) - 144411</small>
+
+    <!-- Fixed Header Start -->
+    <div class="fixed-header">
+        <!-- Topbar Start -->
+        <div class="container-fluid d-none d-lg-block">
+            <div class="row align-items-center py-4 px-xl-5">
+                <div class="col-lg-3">
+                    <a href="" class="text-decoration-none">
+                        <img src="img/LPU.jpg" alt="LPU Online Degree" style="max-height:70px; width: auto;">
+                    </a>
+                </div>
+                <div class="col-lg-3 text-right">
+                    <div class="d-inline-flex align-items-center">
+                        <i class="fa fa-2x fa-map-marker-alt text-primary mr-3"></i>
+                        <div class="text-left">
+                            <h6 class="font-weight-semi-bold mb-1">Our Office</h6>
+                            <small>Jalandhar-Delhi, G.T.Road, Phagwara, Punjab (INDIA) - 144411</small>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 text-right">
-                <div class="d-inline-flex align-items-center">
-                    <i class="fa fa-2x fa-envelope text-primary mr-3"></i>
-                    <div class="text-left">
-                        <h6 class="font-weight-semi-bold mb-1">Email Us</h6>
-                        <small>LPU Punjab@gmail.com</small>
+                <div class="col-lg-3 text-right">
+                    <div class="d-inline-flex align-items-center">
+                        <i class="fa fa-2x fa-envelope text-primary mr-3"></i>
+                        <div class="text-left">
+                            <h6 class="font-weight-semi-bold mb-1">Email Us</h6>
+                            <small>LPU Punjab@gmail.com</small>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 text-right">
-                <div class="d-inline-flex align-items-center">
-                    <i class="fa fa-2x fa-phone text-primary mr-3"></i>
-                    <div class="text-left">
-                        <h6 class="font-weight-semi-bold mb-1">Call Us</h6>
-                        <small>+91-1824-517000</small><br>
-                        <small>+91-1824-404404</small>
+                <div class="col-lg-3 text-right">
+                    <div class="d-inline-flex align-items-center">
+                        <i class="fa fa-2x fa-phone text-primary mr-3"></i>
+                        <div class="text-left">
+                            <h6 class="font-weight-semi-bold mb-1">Call Us</h6>
+                            <small>+91-1824-517000</small><br>
+                            <small>+91-1824-404404</small>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Topbar End -->
+        <!-- Topbar End -->
 
-    <!-- Navbar Start -->
-    <div class="container-fluid">
-        <div class="row border-top px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
-                <a class="d-flex align-items-center justify-content-between bg-secondary w-100 text-decoration-none" data-toggle="collapse" href="#navbar-vertical" style="height: 67px; padding: 0 30px;">
-                    <h5 class="text-primary m-0"><i class="fa fa-book-open mr-2"></i>Subjects</h5>
-                    <i class="fa fa-angle-down text-primary"></i>
-                </a>
-                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 9;">
-                    <div class="navbar-nav w-100">
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Web Design <i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">HTML</a>
-                                <a href="" class="dropdown-item">CSS</a>
-                                <a href="" class="dropdown-item">jQuery</a>
-                            </div>
-                        </div>
-                        <a href="" class="nav-item nav-link">Apps Design</a>
-                        <a href="" class="nav-item nav-link">Marketing</a>
-                        <a href="" class="nav-item nav-link">Research</a>
-                        <a href="" class="nav-item nav-link">SEO</a>
-                    </div>
-                </nav>
-            </div>
-            <div class="col-lg-9">
-                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-                    <a href="" class="text-decoration-none d-block d-lg-none">
-                        <h1 class="m-0"><span class="text-primary">E</span>COURSES</h1>
+        <!-- Navbar Start -->
+        <div class="container-fluid">
+            <div class="row border-top px-xl-5">
+                <div class="col-lg-3 d-none d-lg-block">
+                    <a class="d-flex align-items-center justify-content-between bg-secondary w-100 text-decoration-none" data-toggle="collapse" href="#navbar-vertical" style="height: 67px; padding: 0 30px;">
+                        <h5 class="text-primary m-0"><i class="fa fa-book-open mr-2"></i>Subjects</h5>
+                        <i class="fa fa-angle-down text-primary"></i>
                     </a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav py-0">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About</a>
-                            <a href="course.html" class="nav-item nav-link">Courses</a>
-                            <a href="teacher.html" class="nav-item nav-link">Teachers</a>
+                    <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 9;">
+                        <div class="navbar-nav w-100">
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Blog</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="blog.html" class="dropdown-item active">Blog Grid</a>
-                                    <a href="single.html" class="dropdown-item">Blog Detail</a>
+                                <a href="#" class="nav-link" data-toggle="dropdown">Web Design <i class="fa fa-angle-down float-right mt-1"></i></a>
+                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                    <a href="" class="dropdown-item">HTML</a>
+                                    <a href="" class="dropdown-item">CSS</a>
+                                    <a href="" class="dropdown-item">jQuery</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="" class="nav-item nav-link">Apps Design</a>
+                            <a href="" class="nav-item nav-link">Marketing</a>
+                            <a href="" class="nav-item nav-link">Research</a>
+                            <a href="" class="nav-item nav-link">SEO</a>
                         </div>
-                        <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="joinnow.html">Join Now</a>
-                    </div>
-                </nav>
+                    </nav>
+                </div>
+                <div class="col-lg-9">
+                    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                        <a href="" class="text-decoration-none d-block d-lg-none">
+                            <h1 class="m-0"><span class="text-primary">E</span>COURSES</h1>
+                        </a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav py-0">
+                                <a href="index.html" class="nav-item nav-link">Home</a>
+                                <a href="about.html" class="nav-item nav-link">About</a>
+                                <a href="course.html" class="nav-item nav-link">Courses</a>
+                                <a href="teacher.html" class="nav-item nav-link">Teachers</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Blog</a>
+                                    <div class="dropdown-menu rounded-0 m-0">
+                                        <a href="blog.html" class="dropdown-item active">Blog Grid</a>
+                                        <a href="single.html" class="dropdown-item">Blog Detail</a>
+                                    </div>
+                                </div>
+                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            </div>
+                            <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="joinnow.html">Join Now</a>
+                        </div>
+                    </nav>
+                </div>
             </div>
         </div>
+        <!-- Navbar End -->
     </div>
-    <!-- Navbar End -->
+    <!-- Fixed Header End -->
 
     <!-- Header Start -->
     <div class="container-fluid page-header" style="margin-bottom: 90px; background-image: url('img/Gemini_Generated_Image_6kfuvm6kfuvm6kfu.png'); background-size: cover; background-position: center;">
@@ -154,6 +179,7 @@
                                 </a>
                             </div>
                         </div>
+
                         <!-- Blog Post 2: Dr. Rashmi Mittal -->
                         <div class="col-lg-6 mb-4">
                             <div class="blog-item position-relative overflow-hidden rounded mb-2">
@@ -164,7 +190,8 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- Blog Post 3: Dr. Ashok Kumar Mittal -->
+
+                        <!-- Blog Post 3 -->
                         <div class="col-lg-6 mb-4">
                             <div class="blog-item position-relative overflow-hidden rounded mb-2">
                                 <img class="img-fluid" src="img/123.jpg" alt="Dr. Ashok Kumar Mittal">
@@ -174,17 +201,19 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- Blog Post 4: LPU Innovation -->
+
+                        <!-- Blog Post 4 -->
                         <div class="col-lg-6 mb-4">
                             <div class="blog-item position-relative overflow-hidden rounded mb-2">
                                 <img class="img-fluid" src="img/highest.png" alt="LPU NIRF Ranking">
                                 <a class="blog-overlay text-decoration-none" href="#">
                                     <h5 class="text-white mb-3">LPU Secures Prestigious NAAC A++ Grade & 27th NIRF Overall Rank</h5>
-                                    <p class="text-primary m-0">Jan 01, 2025 </p>
+                                    <p class="text-primary m-0">Jan 01, 2025</p>
                                 </a>
                             </div>
                         </div>
-                        <!-- Blog Post 5: Punjab Police Collaboration -->
+
+                        <!-- Blog Post 5 -->
                         <div class="col-lg-6 mb-4">
                             <div class="blog-item position-relative overflow-hidden rounded mb-2">
                                 <img class="img-fluid" src="img/punjabpolice.jpg" alt="LPU Punjab Police Collaboration">
@@ -194,7 +223,8 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- Blog Post 6: Anand Kumar -->
+
+                        <!-- Blog Post 6 -->
                         <div class="col-lg-6 mb-4">
                             <div class="blog-item position-relative overflow-hidden rounded mb-2">
                                 <img class="img-fluid" src="img/anand.jpg" alt="Anand Kumar with LPU Students">
@@ -204,59 +234,60 @@
                                 </a>
                             </div>
                         </div>
+
                         <div class="col-lg-6 mb-4">
                             <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                                <img class="img-fluid" src="img/lolololo.jpg" alt="LPU NIRF Ranking">
+                                <img class="img-fluid" src="img/lolololo.jpg" alt="LPU Event">
                                 <a class="blog-overlay text-decoration-none" href="#">
                                     <h5 class="text-white mb-3">spectra2026 #lpuevents #edurevolution #culturalcelebration #studentcreativity | LPU</h5>
                                     <p class="text-primary m-0">Apr 01, 2026</p>
                                 </a>
                             </div>
                         </div>
+
                         <div class="col-lg-6 mb-4">
                             <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                                <img class="img-fluid" src="img/spectraa.jpg" alt="LPU NIRF Ranking">
+                                <img class="img-fluid" src="img/spectraa.jpg" alt="LPU Event">
                                 <a class="blog-overlay text-decoration-none" href="#">
                                     <h5 class="text-white mb-3">Spectra 2026 Begins with Grandeur at LPU Celebration</h5>
                                     <p class="text-primary m-0">Apr 01, 2026</p>
                                 </a>
                             </div>
                         </div>
+
                         <!-- Pagination -->
                         <div class="col-12">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination pagination-lg justify-content-center mb-0">
-                                  <li class="page-item disabled">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                      <span aria-hidden="true">&laquo;</span>
-                                      <span class="sr-only">Previous</span>
-                                    </a>
-                                  </li>
-                                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                      <span aria-hidden="true">&raquo;</span>
-                                      <span class="sr-only">Next</span>
-                                    </a>
-                                  </li>
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
                                 </ul>
-                              </nav>
+                            </nav>
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="col-lg-4 mt-5 mt-lg-0">
-                    <!-- Author Bio - Dr. Ashok Kumar Mittal (Expanded) -->
                     <div class="d-flex flex-column text-center bg-dark rounded mb-5 py-5 px-4">
                         <img src="img/mittal.jpg" class="img-fluid rounded-circle mx-auto mb-3" style="width: 150px; height: 150px; object-fit: cover;">
                         <h3 class="text-primary mb-3">Dr. Ashok Kumar Mittal</h3>
                         <p class="text-white m-0" style="font-size: 14px; line-height: 1.6;">Founder Chancellor of Lovely Professional University (LPU) & Member of Parliament (Rajya Sabha)</p>
                         <p class="text-white-50 mt-3" style="font-size: 13px; line-height: 1.5;">A law graduate from GNDU Amritsar, Dr. Mittal transformed his family's confectionery business into India's largest single-campus private university. Under his visionary leadership, LPU has earned NAAC A++ grade and ranks 27th in NIRF Overall Category. He is a strong advocate for making education industry-relevant and accessible to all.</p>
                     </div>
-    
-                    <!-- Search Form -->
+
                     <div class="mb-5">
                         <form action="">
                             <div class="input-group">
@@ -267,8 +298,7 @@
                             </div>
                         </form>
                     </div>
-    
-                    <!-- Category List -->
+
                     <div class="mb-5">
                         <h3 class="text-uppercase mb-4" style="letter-spacing: 5px;">Categories</h3>
                         <ul class="list-group list-group-flush">
@@ -294,8 +324,7 @@
                             </li>
                         </ul>
                     </div>
-    
-                    <!-- Recent Post (Systematically Arranged) -->
+
                     <div class="mb-5">
                         <h3 class="text-uppercase mb-4" style="letter-spacing: 5px;">Recent Post</h3>
                         <a class="d-flex align-items-center text-decoration-none mb-3" href="#" style="display: flex; align-items: center;">
@@ -327,8 +356,7 @@
                             </div>
                         </a>
                     </div>
-    
-                    <!-- Tag Cloud -->
+
                     <div class="mb-5">
                         <h3 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h3>
                         <div class="d-flex flex-wrap m-n1">
@@ -355,7 +383,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-5">
                         <h5 class="text-primary text-uppercase mb-4" style="letter-spacing: 5px;">Get In Touch</h5>
-                        <p><i class="fa fa-map-marker-alt mr-2"></i>Block 36,  LOVELY PROFESSIONAL UNIVERSITY, Jalandhar Punjab India.</p>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>Block 36, LOVELY PROFESSIONAL UNIVERSITY, Jalandhar Punjab India.</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+19 9693967173</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+19 8273872910</p>
                         <p><i class="fa fa-envelope mr-2"></i>harsh832019@gmail.com</p>
@@ -392,36 +420,26 @@
             </div>
         </div>
     </div>
+
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white">&copy; <a href="#">Domain Name</a>. All Rights Reserved. Designed by <a href="https://www.linkedin.com/in/harsh-kumar555125">HARSH KUMAR</a>
-                </p>
+                <p class="m-0 text-white">&copy; <a href="#">Domain Name</a>. All Rights Reserved. Designed by <a href="https://www.linkedin.com/in/harsh-kumar555125">HARSH KUMAR</a></p>
             </div>
             <div class="col-lg-6 text-center text-md-right">
                 <ul class="nav d-inline-flex">
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Privacy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Terms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Help</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link text-white py-0" href="#">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link text-white py-0" href="#">Terms</a></li>
+                    <li class="nav-item"><a class="nav-link text-white py-0" href="#">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link text-white py-0" href="#">Help</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <!-- Footer End -->
 
-    <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -430,5 +448,4 @@
     <script src="mail/contact.js"></script>
     <script src="js/main.js"></script>
 </body>
-
 </html>
